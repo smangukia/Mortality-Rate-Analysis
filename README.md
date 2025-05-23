@@ -1,60 +1,54 @@
-### Mortality Analysis Dashboard
+# Mortality Analysis Dashboard
 
-A comprehensive data science project for analyzing mortality data across different countries and time periods. This repository contains both the original Jupyter notebook with detailed data analysis and an interactive Streamlit web application for exploring mortality patterns, detecting anomalies, correlating them with historical events, and calculating excess mortality statistics.
+A comprehensive data science project featuring advanced machine learning algorithms and interactive visualizations for analyzing global mortality patterns, detecting anomalies, and correlating them with historical events. This repository contains both the original Jupyter notebook with detailed data analysis and an interactive Streamlit web application.
+
+## 🎯 Project Overview
+
+This project combines statistical analysis, machine learning, and time series forecasting to identify unusual mortality patterns across different countries and time periods. The system implements multiple anomaly detection algorithms and provides an interactive Streamlit dashboard for real-time analysis.
 
 ## 📊 Screenshots
 
 ### Streamlit Dashboard - Home Page
-
 ![Home Page](screenshots/HomePage.png)
 
 ### Data Exploration
-
 ![Data Exploration](screenshots/DataExploration1.png)
-
 ![Data Exploration](screenshots/DataExploration2.png)
 
 ### Anomaly Detection
-
 ![Anomaly Detection](screenshots/AnomalyDetection.png)
 
 ### Historical Correlation
-
 ![Historical Correlation](screenshots/HistoricalCorrelation.png)
 
 ### Excess Mortality
-
 ![Excess Mortality](screenshots/ExcessMortality.png)
 
 ## 🌟 Features
 
 ### Jupyter Notebook Analysis
-
 - **Exploratory Data Analysis (EDA)**: Comprehensive statistical analysis of mortality data
 - **Data Preprocessing**: Data cleaning, transformation, and preparation
 - **Statistical Modeling**: Implementation of anomaly detection algorithms
+- **Machine Learning Models**: Isolation Forest, One-Class SVM, LSTM Autoencoders
+- **Time Series Analysis**: SARIMA models and LSTM neural networks
 - **Visualization**: Detailed plots and charts for data insights
 - **Research Documentation**: Step-by-step analysis with explanations
 
-
 ### Interactive Streamlit Dashboard
-
 - **Data Exploration**: Analyze mortality data by country, year, and demographic factors
-- **Anomaly Detection**: Identify unusual mortality patterns using statistical methods:
-
-- Z-Score method
-- IQR (Interquartile Range) method
-- Moving Average method
-
+- **Anomaly Detection**: Identify unusual mortality patterns using multiple methods:
+  - Z-Score method
+  - IQR (Interquartile Range) method
+  - Moving Average method
+  - **Ensemble Approach**: Combining statistical and ML methods achieving **81.25% F1-score**
 
 - **Historical Correlation**: Correlate mortality anomalies with historical events:
-
-- Pandemics
-- Conflicts
-- Natural disasters
-- Policy changes
-- Heat waves
-
+  - Pandemics
+  - Conflicts
+  - Natural disasters
+  - Policy changes
+  - Heat waves
 
 - **Excess Mortality**: Calculate and visualize excess mortality during anomalous periods
 - **Interactive Visualizations**: Dynamic charts and plots with user controls
