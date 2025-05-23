@@ -1,4 +1,4 @@
-# Mortality Analysis Dashboard
+# Mortality Rate Analysis
 
 A comprehensive data science project featuring advanced machine learning algorithms and interactive visualizations for analyzing global mortality patterns, detecting anomalies, and correlating them with historical events. This repository contains both the original Jupyter notebook with detailed data analysis and an interactive Streamlit web application.
 
