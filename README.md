@@ -80,8 +80,6 @@ pip install -r requirements.txt
 ```
 
 
-
-
 ## 🚀 Usage
 
 ### Running the Jupyter Notebook
@@ -120,58 +118,105 @@ streamlit run app.py
 
 ## 📊 Data
 
+### Data Source
+
+The project uses data from the **Human Mortality Database (HMD)**, a collaborative project between the University of California, Berkeley (USA) and the Max Planck Institute for Demographic Research (Germany). The HMD provides detailed mortality and population data for over 40 countries or areas, with some series extending back to the 19th century.
+
+- **Website**: [Human Mortality Database](https://www.mortality.org/)
+- **Coverage**: 40+ countries/regions
+- **Time Span**: Some data extends back to the 1800s
+- **Quality**: High-quality, validated demographic data
+- **Standardization**: Consistent methods applied across all countries
+
+The HMD is widely used in demographic research, epidemiology, and public health studies due to its comprehensive coverage and methodological consistency.
+
+### Data Structure
+
 The application uses mortality data with the following structure:
+- **Country**: Country identifier
+- **Year**: Year of data collection
+- **Sex**: Gender classification (1=Male, 2=Female)
+- **Total**: Total mortality count
+- **Age-specific columns**: Mortality by age groups (d0, d1, d5, d10, etc.)
 
-- Country
-- Year
-- Sex
-- Total mortality
-- Age-specific mortality columns (d0, d1, d5, etc.)
+*Note: If the original data file is not found, the application will generate sample data for demonstration purposes.*
 
 
-If the original data file is not found, the application will create sample data for demonstration purposes.
+## 🔬 Methodology
 
-## 🔍 Methods
+### Anomaly Detection Methods
 
-### Anomaly Detection
+1. **Z-Score Method**
+   - Identifies data points that deviate significantly from the mean
+   - Configurable threshold (typically 2-3 standard deviations)
 
-The project implements three methods for anomaly detection:
+2. **IQR (Interquartile Range)**
+   - Identifies outliers based on the interquartile range
+   - Robust to extreme values
 
-1. **Z-Score**: Identifies data points that deviate significantly from the mean
-2. **IQR (Interquartile Range)**: Identifies outliers based on the interquartile range
-3. **Moving Average**: Identifies points that deviate from the local trend
+3. **Moving Average**
+   - Identifies points that deviate from local trends
+   - Adaptive to temporal patterns
 
+4. **Machine Learning Approaches**
+   - Isolation Forest for unsupervised anomaly detection
+   - One-Class SVM for novelty detection
+   - LSTM Autoencoders for temporal pattern recognition
 
 ### Excess Mortality Calculation
 
-Excess mortality is calculated by:
+1. **Baseline Estimation**: Calculate expected mortality using historical averages
+2. **Confidence Intervals**: Determine 95% confidence bounds using t-distribution
+3. **Excess Calculation**: Compute difference between actual and expected mortality
+4. **Statistical Significance**: Identify statistically significant deviations
 
-1. Computing the expected mortality based on previous years
-2. Calculating the difference between actual and expected mortality
-3. Determining statistical significance using confidence intervals
+### Historical Event Correlation
 
+The system includes a comprehensive database of historical events:
+- **Pandemics**: COVID-19, H1N1, SARS, HIV/AIDS, Hong Kong Flu
+- **Conflicts**: Wars, civil conflicts, terrorist attacks
+- **Natural Disasters**: Earthquakes, tsunamis, hurricanes, cyclones
+- **Policy Changes**: Healthcare reforms, reunifications
+- **Environmental Events**: Heat waves, climate-related mortality
 
-### Historical Correlation
+## 🖥️ Dashboard Pages
 
-The analysis matches detected anomalies with a database of historical events, including:
+### 1. Home
+- Project overview and key statistics
+- Global mortality trends
+- Dataset summary and features
 
-- Pandemics (1968 Hong Kong Flu, 2009 H1N1, 2020 COVID-19, etc.)
-- Conflicts (Gulf War, 9/11, various regional conflicts)
-- Natural disasters (earthquakes, tsunamis, hurricanes)
-- Policy changes (healthcare reforms, reunifications)
-- Heat waves and climate events
+### 2. Data Exploration
+- Interactive filtering by country, year, and demographics
+- Multiple visualization types (trends, distributions, heatmaps)
+- Age-specific mortality analysis
+- Statistical summaries and data export
 
+### 3. Anomaly Detection
+- Real-time anomaly detection with adjustable parameters
+- Multiple detection methods comparison
+- Anomaly timeline and distribution analysis
+- Country-specific detailed analysis
 
-## 💻 Technologies Used
+### 4. Historical Correlation
+- Timeline of historical events
+- Correlation analysis between anomalies and events
+- Precision-recall metrics and performance evaluation
+- Event type classification and analysis
 
-- **Python**: Core programming language
-- **Jupyter Notebook**: Interactive development environment for analysis
-- **Streamlit**: Web application framework
-- **Pandas**: Data manipulation and analysis
-- **NumPy**: Numerical computing
-- **Matplotlib & Seaborn**: Static data visualization
-- **Plotly**: Interactive data visualization
-- **SciPy**: Scientific computing and statistical analysis
+### 5. Excess Mortality
+- Excess mortality calculation and visualization
+- Statistical significance testing
+- Comparison of expected vs. actual mortality
+- Event-specific excess mortality analysis
+
+## 🔧 Customization Options
+
+- **Historical Events**: Add or modify the historical events database
+- **Detection Parameters**: Adjust anomaly detection thresholds and methods
+- **Visualization Styles**: Customize color schemes and chart types
+- **Data Sources**: Integrate additional mortality datasets
+- **Machine Learning Models**: Implement additional anomaly detection algorithms
 
 
 ## 🔮 Future Improvements
@@ -205,6 +250,14 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 1. **Data Analysis** (`mortality_analysis.ipynb`): Start here to understand the data and methodology
 2. **Web Application** (`app.py`): Interactive dashboard for exploring results and conducting further analysis
 3. **Deployment**: The Streamlit app can be deployed on various platforms (Streamlit Cloud, Heroku, etc.)
+
+## 📚 References
+
+- Human Mortality Database. University of California, Berkeley (USA), and Max Planck Institute for Demographic Research (Germany). Available at www.mortality.org
+- World Health Organization (WHO) mortality statistics
+- Historical event databases and timelines
+- Statistical anomaly detection literature
+- Time series analysis and forecasting methods
 
 
 **Note**: This project demonstrates the complete data science workflow from research and exploratory analysis in Jupyter notebooks to developing an interactive web application that can be run locally or deployed to cloud platforms.
